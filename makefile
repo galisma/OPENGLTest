@@ -39,7 +39,7 @@ create-dirs:
 -include $(wildcard $(BUILD_DIR)/*.d)
 
 run: all
-	./$(TARGET)
+	GDK_BACKEND=wayland _GLFW_WAYLAND=1 GTK_THEME=Adwaita:dark ./$(TARGET)
 
 clean:
 	rm -rf build

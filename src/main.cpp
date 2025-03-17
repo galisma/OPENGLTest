@@ -1,4 +1,4 @@
-//
+// main.cpp
 #include <gl.h>
 #include <glfw3.h>
 
@@ -39,8 +39,14 @@ int main(int argc, char* argv[]) {
   unsigned int VBO;
   glCreateBuffers(1, &VBO);
   glBindBuffer(GL_ARRAY_BUFFER, VBO);
-  glBufferData();
+  glBufferData(GL_ARRAY_BUFFER, sizeof(triangulo), triangulo, GL_STATIC_DRAW);
 
+  glVertexAttribPointer(0, 3, GL_FLOAT, 0, 3 * sizeof(float), (void*)0);
+  glEnableVertexAttribArray(0);
+
+  unsigned int VAO;
+  glCreateVertexArrays(1, &VAO);
+  glBindVertexArray(VAO);
 
   while (!glfwWindowShouldClose(window)) {
     // render here
